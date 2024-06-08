@@ -6,8 +6,8 @@ import {KingMaker} from "../src/King.sol";
 
 contract KingScript is Script {
 
-    address constant TARGET = 0x05d15eCBcd730Cc0538DF635Cc76AF12CA645d64;
-    uint constant PLAYMONEY = 0.001 ether;
+    address constant TARGET = 0x05d15eCBcd730Cc0538DF635Cc76AF12CA645d64; 
+    uint constant PLAYMONEY = 0.001 ether; 
 
     function setUp() public {
 

